@@ -20,39 +20,26 @@ class Person
 
     def happiness=(num)
         @happiness = num
-        self.happiness.clamp(0, 10)
-        # [@happiness, 0, 10].sort[1]
+        # self.happiness.clamp(0, 10)
         @happiness = 10 if @happiness > 10 
         @happiness = 0 if @happiness < 0
     end
 
     def hygiene=(num)
         @hygiene = num
-        self.hygiene.clamp(0, 10)
-        # [@hygiene, 0, 10].sort[1]
+        # self.hygiene.clamp(0, 10)
         @hygiene = 10 if @hygiene > 10 
         @hygiene = 0 if @hygiene < 0
     end
 
 
     def happy?
-        if happiness >= 7
-            return true
-        else happiness <= 7
-            return false
-        end
+       @happiness > 7 
     end
 
 
     def clean?
-        # @hygiene.max = 10
-        # if @hygiene >= 7
-        #     true
-        # elsif @hygiene > 10
-        #     false
-        # else
-        #     false
-        # end
+        @hygiene > 7
     end
 
     def get_paid(salary)
@@ -66,14 +53,20 @@ class Person
     end
 
     def work_out
-        # @happiness += 2
-        # @hygiene -= 3
+        @happiness += 2
+        @hygiene -= 3
         "♪ another one bites the dust ♫"
     end
 
-    def call_friend(friend)
+    def call_friend(name)
         self.each { |person| person.happiness += 3}
         friend.each { |friend| friend.happiness += 3}
     end
+
+    def start_conversation
+
+    end
+
+
 
 end
